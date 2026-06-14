@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esra BAL | Özel İçerik Platformu</title>
+  <meta name="description" content="Esra BAL resmi özel içerik platformu. 18+ yaş için.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+    .serif { font-family: 'Playfair Display', serif; }
+    .sans { font-family: 'Inter', sans-serif; }
+    .gold { background: linear-gradient(90deg, #d4af37, #f5d76e, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    body { background: #030303; }
+    #three-container { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+    .glass { background: rgba(10,10,10,0.85); backdrop-filter: blur(32px); border: 1px solid rgba(212,175,55,0.15); }
+  </style>
+</head>
+<body class="text-white sans overflow-x-hidden">
+
+<div id="three-container"></div>
+
+<!-- AGE GATE -->
+<div id="gate" class="fixed inset-0 bg-black z-[999] flex items-center justify-center p-6">
+  <div class="max-w-md w-full text-center glass rounded-3xl p-12 border-amber-400/30">
+    <i class="fas fa-lock text-5xl text-amber-400 mb-6"></i>
+    <h1 class="serif text-4xl gold mb-4">ÖZEL İÇERİK</h1>
+    <p class="text-neutral-300 text-sm mb-8">Bu platform sadece 18 yaş ve üzeri bireyler içindir. Giriş yaparak reşit olduğunuzu onaylarsınız.</p>
+    <button onclick="enterSite()" class="w-full py-5 bg-gradient-to-r from-rose-600 to-amber-500 text-black font-bold text-lg rounded-2xl hover:scale-105 transition">Onaylıyorum — Giriş Yap</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="main" class="hidden">
+
+  <!-- HERO -->
+  <section class="min-h-screen flex items-center justify-center text-center relative px-6 pt-20">
+    <div class="max-w-5xl text-center">
+      <p class="text-amber-400 tracking-[8px] text-xs mb-4">ESRA BAL • RESMİ</p>
+      <h1 class="serif text-6xl md:text-8xl gold mb-6 leading-tight">Seni Bekliyorum</h1>
+      <p class="text-xl md:text-2xl text-neutral-300 max-w-2xl mx-auto mb-10">
+        Instagram'da gördüklerin sadece bir ön sevişmeydi.<br>
+        Gerçek zevk burada başlıyor.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#tiers" class="px-12 py-6 bg-gradient-to-r from-rose-600 to-amber-500 text-black font-bold rounded-2xl hover:scale-105 transition text-lg">Hemen Katıl</a>
+        <a href="#about" class="px-12 py-6 border border-amber-400 rounded-2xl hover:bg-amber-400 hover:text-black transition">Nasıl Çalışır?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20 px-6 bg-zinc-950">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="serif text-4xl gold mb-6">Nasıl Çalışır?</h2>
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <div class="glass p-8 rounded-3xl">
+          <i class="fas fa-credit-card text-4xl text-amber-400 mb-4"></i>
+          <h3 class="font-bold mb-2">1. Ödeme Yap</h3>
+          <p class="text-sm text-neutral-400">Güvenli ödeme ile 10 saniyede üye ol.</p>
+        </div>
+        <div class="glass p-8 rounded-3xl">
+          <i class="fas fa-key text-4xl text-amber-400 mb-4"></i>
+          <h3 class="font-bold mb-2">2. Erişim Al</h3>
+          <p class="text-sm text-neutral-400">Ödeme sonrası anında özel içeriğe eriş.</p>
+        </div>
+        <div class="glass p-8 rounded-3xl">
+          <i class="fas fa-infinity text-4xl text-amber-400 mb-4"></i>
+          <h3 class="font-bold mb-2">3. Keyfini Çıkar</h3>
+          <p class="text-sm text-neutral-400">Sınırsız fotoğraf, video ve özel mesaj.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIERS -->
+  <section id="tiers" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="serif text-4xl gold mb-4">Paketler</h2>
+      <p class="text-neutral-400 mb-12">Kontenjan: <span id="counter" class="text-amber-400 font-bold">142</span>/150</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass p-8 rounded-3xl">
+          <h3 class="text-xl mb-3">Observer</h3>
+          <div class="text-4xl font-bold mb-4">199₺<span class="text-sm text-neutral-500">/ay</span></div>
+          <a href="#" onclick="wa('Observer 199₺')" class="block py-4 border border-amber-400 rounded-xl hover:bg-amber-400 hover:text-black">Seç</a>
+        </div>
+
+        <div class="glass p-8 rounded-3xl border-2 border-amber-400 scale-105">
+          <div class="text-amber-400 text-xs mb-2">★ EN ÇOK TERCİH EDİLEN</div>
+          <h3 class="text-xl mb-3 gold">Insider</h3>
+          <div class="text-4xl font-bold mb-4 gold">349₺<span class="text-sm text-neutral-500">/ay</span></div>
+          <a href="#" onclick="wa('Insider 349₺')" class="block py-4 bg-amber-500 text-black font-bold rounded-xl hover:scale-105">Hemen Katıl</a>
+        </div>
+
+        <div class="glass p-8 rounded-3xl">
+          <h3 class="text-xl mb-3">VIP</h3>
+          <div class="text-4xl font-bold mb-4">699₺<span class="text-sm text-neutral-500">/ay</span></div>
+          <a href="#" onclick="wa('VIP 699₺')" class="block py-4 border border-amber-400 rounded-xl hover:bg-amber-400 hover:text-black">Seç</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-10 px-6 text-center text-xs text-neutral-500">
+    <p>© 2026 Esra BAL. Tüm hakları saklıdır. 18+</p>
+  </footer>
+</div>
+
+<script>
+// Three.js Premium Particle Sistemi
+let scene, camera, renderer, gem, particles;
+let mouseX = 0, mouseY = 0;
+
+function initThree() {
+  const container = document.getElementById('three-container');
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+  const light = new THREE.PointLight(0xf59e0b, 3);
+  light.position.set(10, 10, 15);
+  scene.add(light);
+
+  gem = new THREE.Mesh(new THREE.OctahedronGeometry(3.2, 0), new THREE.MeshPhongMaterial({ color: 0xd4af37, shininess: 100 }));
+  scene.add(gem);
+
+  const count = 2400;
+  const positions = new Float32Array(count * 3);
+  for (let i = 0; i < count * 3; i += 3) {
+    positions[i] = (Math.random() - 0.5) * 130;
+    positions[i+1] = (Math.random() - 0.5) * 130;
+    positions[i+2] = (Math.random() - 0.5) * 130;
+  }
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+  particles = new THREE.Points(geometry, new THREE.PointsMaterial({ size: 0.17, color: 0xfacc15, transparent: true, opacity: 0.75 }));
+  scene.add(particles);
+
+  camera.position.z = 22;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+    mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+  });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    gem.rotation.y += 0.006;
+    gem.rotation.x = mouseY * 0.2;
+    particles.rotation.y += 0.0028;
+    particles.rotation.x = mouseY * 0.15;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+}
+
+initThree();
+
+function enterSite() {
+  document.getElementById('gate').classList.add('hidden');
+  document.getElementById('main').classList.remove('hidden');
+}
+
+function wa(tier) {
+  window.open(`https://wa.me/905374595444?text=Esra BAL - ${tier}%0Aİsim Soyisim:%0ADekont`, '_blank');
+}
+</script>
+</body>
+</html>
